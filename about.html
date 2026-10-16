@@ -954,20 +954,21 @@
       box-shadow: 0 22px 44px var(--shadow);
       border-color: var(--accent);
     }
-    .team-avatar {
-      width: 100%;
-      height: 220px;
-      overflow: hidden;
-      background: var(--bg-secondary);
-      position: relative;
-    }
+   .team-avatar {
+  width: 100%;
+  aspect-ratio: 4/5;         /* portrait ratio — perfect for headshots */
+  overflow: hidden;
+  background: var(--bg-secondary);
+  position: relative;
+}
     .team-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;   /* pulls the face into frame */
+  display: block;
+  transition: transform 0.5s ease;
+}
     .team-card:hover .team-avatar img { transform: scale(1.06); }
     .team-body {
       padding: 1.3rem 1.2rem 1.6rem;
@@ -990,13 +991,13 @@
       .team-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 767px) {
-      .team-section { padding: 3.5rem 0; }
-      .team-avatar { height: 200px; }
-    }
-    @media (max-width: 480px) {
-      .team-grid { grid-template-columns: 1fr; gap: 1.2rem; }
-      .team-avatar { height: 240px; }
-    }
+  .team-section { padding: 3.5rem 0; }
+  /* aspect-ratio handles the height automatically */
+}
+@media (max-width: 480px) {
+  .team-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .team-avatar { aspect-ratio: 1/1; }   /* square on mobile */
+}
 
     /* ============================================================
        7. CTA SECTION — UNIQUE, NO STATS

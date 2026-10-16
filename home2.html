@@ -61,7 +61,7 @@
     }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
 
-        /* ===== NAVBAR ===== */
+    /* ===== NAVBAR ===== */
     .navbar {
       display: flex;
       flex-wrap: wrap;
@@ -76,14 +76,12 @@
       transition: background var(--transition), border-color var(--transition);
     }
 
-    /* Only top-level nav links are white — dropdown links keep their own color */
     .navbar .logo-text,
     .navbar .nav-links > li > a { color: #ffffff !important; }
     .navbar .logo-text span { color: #ffffff !important; opacity: 0.7; }
     .navbar .nav-links > li > a:hover { color: #4db8ff !important; }
     .navbar .nav-links > li > a.active { color: #4db8ff !important; border-bottom-color: #4db8ff !important; }
 
-    /* ===== LOGO ===== */
     .logo, .footer-logo-link {
       display: flex;
       align-items: center;
@@ -114,7 +112,6 @@
       letter-spacing: -0.5px;
     }
 
-    /* ===== NAV LINKS ===== */
     .nav-links {
       display: flex;
       flex-wrap: wrap;
@@ -129,7 +126,6 @@
       transition: color 0.2s;
     }
 
-    /* ===== DROPDOWN ===== */
     .dropdown { position: relative; cursor: pointer; }
     .dropdown > a { display: flex; align-items: center; gap: 4px; }
 
@@ -187,7 +183,6 @@
       background: #0a0a0a;
     }
 
-    /* ===== NAV CONTROLS (RTL + Theme + CTA) ===== */
     .nav-controls {
       display: flex;
       align-items: center;
@@ -268,7 +263,7 @@
       box-shadow: 0 8px 20px rgba(0, 102, 161, 0.7);
     }
 
-    /* ===== SECTION TITLE ===== */
+    /* ===== SECTION TITLE (no icons) ===== */
     .section-title {
       font-size: 2.2rem;
       font-weight: 700;
@@ -276,7 +271,6 @@
       text-align: center;
       color: var(--text-primary);
     }
-    .section-title i { color: var(--accent); margin-right: 10px; }
     .section-subtitle {
       color: var(--text-secondary);
       margin-bottom: 2.5rem;
@@ -395,7 +389,6 @@
       font-weight: 500;
     }
 
-    /* SHORTER hero visual — reduced aspect ratio & max height */
     .hero-split-visual {
       position: relative;
       border-radius: 24px;
@@ -556,123 +549,316 @@
     }
 
     /* ============================================================
-       3. FOUNDATION & BASEMENT PROTECTION
+       3. PROBLEMS WE SOLVE (common problems)
        ============================================================ */
-    .protection-section {
+    .problems-section {
       background: var(--bg-primary);
       padding: 4.5rem 0 5rem;
       transition: background var(--transition);
     }
-    .protection-split {
+    .problems-grid {
       display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 4rem;
-      align-items: center;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 1.5rem;
     }
-    .protection-visual {
-      border-radius: 32px;
+    .problem-card {
+      background: var(--card-bg);
+      border-radius: 28px;
       overflow: hidden;
-      aspect-ratio: 4/3;
-      box-shadow: 0 30px 60px var(--shadow);
+      border: 1px solid var(--border-color);
+      transition: 0.35s ease;
+      box-shadow: 0 4px 16px var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+    .problem-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px var(--shadow);
+      border-color: var(--accent);
+    }
+    .problem-img {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      background: #d4e0e8;
       position: relative;
     }
-    .protection-visual img {
+    .problem-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.5s ease, filter 0.5s ease;
+      filter: grayscale(45%) brightness(0.85) contrast(1.05);
     }
-    .protection-visual::after {
+    .problem-img::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, transparent 60%, rgba(0, 30, 60, 0.45) 100%);
+      background: linear-gradient(160deg, rgba(0, 40, 70, 0.35) 0%, rgba(0, 80, 120, 0.15) 100%);
       pointer-events: none;
+      transition: opacity 0.5s ease;
+      z-index: 1;
     }
-    .protection-visual-tag {
-      position: absolute;
-      top: 1.2rem;
-      left: 1.2rem;
-      background: rgba(255, 255, 255, 0.95);
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      padding: 0.45rem 0.9rem;
-      border-radius: 60px;
-      z-index: 2;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    .problem-card:hover .problem-img img {
+      transform: scale(1.06);
+      filter: grayscale(0%) brightness(1) contrast(1);
     }
-    [data-theme="dark"] .protection-visual-tag { background: rgba(10, 10, 10, 0.95); color: #4db8ff; }
-
-    .protection-list {
+    .problem-card:hover .problem-img::after { opacity: 0; }
+    .problem-body {
+      padding: 1.6rem 1.5rem;
+      flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      text-align: center;
+    }
+    .problem-body .icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(0, 102, 161, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
+    .problem-body h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .problem-body p {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      flex: 1;
+    }
+    @media (max-width: 992px) {
+      .problems-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 767px) {
+      .problems-section { padding: 3.5rem 0; }
+      .problems-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .problem-img { height: 180px; }
+    }
+    @media (max-width: 480px) {
+      .problem-img { height: 160px; }
+      .problem-body { padding: 1.3rem 1.2rem; }
+      .problem-body h3 { font-size: 1.02rem; }
+      .problem-body p { font-size: 0.82rem; }
+    }
+
+    /* ============================================================
+       4. OUR SERVICES
+       ============================================================ */
+    .services-section {
+      background: var(--section-bg);
+      padding: 4.5rem 0 5rem;
+      transition: background var(--transition);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
       margin-top: 1.5rem;
     }
-    .protection-item {
+    .service-card {
+      background: var(--card-bg);
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      transition: 0.35s ease;
+      box-shadow: 0 4px 16px var(--shadow);
       display: flex;
-      align-items: flex-start;
-      gap: 1rem;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px var(--shadow);
+      border-color: var(--accent);
+    }
+    .service-img {
+      width: 100%;
+      height: 190px;
+      overflow: hidden;
+      background: #d4e0e8;
+    }
+    .service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .service-card:hover .service-img img { transform: scale(1.06); }
+    .service-body {
+      padding: 1.6rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-body .icon {
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .service-body h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .service-body p {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .service-body .arrow-link {
+      margin-top: 1rem;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+      text-decoration: none;
+    }
+    .service-body .arrow-link i { transition: 0.2s; }
+    .service-card:hover .service-body .arrow-link i { transform: translateX(6px); }
+    [dir="rtl"] .service-card:hover .service-body .arrow-link i { transform: translateX(-6px); }
+
+    @media (max-width: 992px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 767px) {
+      .services-section { padding: 3.5rem 0; }
+      .services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .service-img { height: 180px; }
+    }
+    @media (max-width: 480px) {
+      .service-img { height: 160px; }
+      .service-body { padding: 1.3rem 1.2rem; }
+      .service-body h3 { font-size: 1.02rem; }
+      .service-body p { font-size: 0.82rem; }
+    }
+
+    /* ============================================================
+       5. WARNING SIGNS (new)
+       ============================================================ */
+    .warning-section {
+      background: var(--bg-primary);
+      padding: 4.5rem 0 5rem;
+      transition: background var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .warning-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0, 102, 161, 0.06), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .warning-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .warning-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      border-radius: 18px;
-      padding: 1.2rem 1.4rem;
-      transition: 0.3s ease;
-      box-shadow: 0 4px 12px var(--shadow);
+      border-radius: 22px;
+      padding: 1.7rem 1.6rem;
+      box-shadow: 0 4px 16px var(--shadow);
+      transition: 0.35s ease;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      position: relative;
+      overflow: hidden;
     }
-    .protection-item:hover {
-      transform: translateX(6px);
+    .warning-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--accent);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.35s ease;
+    }
+    .warning-card:hover::before {
+      transform: scaleY(1);
+      transform-origin: top;
+    }
+    .warning-card:hover {
+      transform: translateY(-6px);
       border-color: var(--accent);
-      box-shadow: 0 10px 24px var(--shadow);
+      box-shadow: 0 16px 34px var(--shadow);
     }
-    [dir="rtl"] .protection-item:hover { transform: translateX(-6px); }
-    .protection-item-icon {
-      width: 46px;
-      height: 46px;
+    .warning-number {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
       border-radius: 12px;
       background: rgba(0, 102, 161, 0.1);
       color: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.15rem;
-      flex-shrink: 0;
-      transition: 0.3s ease;
+      font-size: 0.95rem;
+      font-weight: 800;
+      transition: 0.35s ease;
     }
-    .protection-item:hover .protection-item-icon {
+    .warning-card:hover .warning-number {
       background: var(--accent);
       color: #fff;
       transform: rotate(-6deg);
     }
-    .protection-item-text h4 {
+    .warning-text h3 {
       font-size: 1rem;
       font-weight: 700;
       color: var(--text-primary);
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.35rem;
+      line-height: 1.35;
     }
-    .protection-item-text p {
+    .warning-text p {
       font-size: 0.85rem;
       color: var(--text-secondary);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     @media (max-width: 992px) {
-      .protection-split { grid-template-columns: 1fr; gap: 3rem; }
-      .protection-visual { aspect-ratio: 16/10; }
+      .warning-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 767px) {
+      .warning-section { padding: 3.5rem 0; }
+      .warning-grid { grid-template-columns: 1fr; gap: 1rem; }
     }
     @media (max-width: 480px) {
-      .protection-visual { border-radius: 24px; }
-      .protection-item { padding: 1rem 1.1rem; }
-      .protection-item-icon { width: 40px; height: 40px; font-size: 1rem; }
-      .protection-item-text h4 { font-size: 0.95rem; }
-      .protection-item-text p { font-size: 0.8rem; }
+      .warning-card { padding: 1.3rem 1.2rem; }
+      .warning-number { width: 38px; height: 38px; font-size: 0.85rem; }
+      .warning-text h3 { font-size: 0.92rem; }
+      .warning-text p { font-size: 0.8rem; }
     }
 
     /* ============================================================
-       4. OUR PROTECTION PROCESS
+       6. REPAIR PROCESS
        ============================================================ */
     .process-section {
       background: var(--section-bg);
@@ -745,7 +931,7 @@
       line-height: 1.6;
     }
     .process-step .step-icon {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       color: var(--accent);
       margin-bottom: 0.6rem;
       display: block;
@@ -755,16 +941,17 @@
       .process-grid { grid-template-columns: repeat(2, 1fr); }
       .process-grid::before { display: none; }
     }
-    @media (max-width: 480px) {
+    @media (max-width: 767px) {
+      .process-section { padding: 3.5rem 0; }
       .process-grid { grid-template-columns: 1fr; gap: 1rem; }
       .process-step { padding: 1.5rem 1.2rem; }
     }
 
     /* ============================================================
-       5. TESTIMONIALS — WITH IMAGE AVATARS
+       8. TESTIMONIALS
        ============================================================ */
     .testimonials-section {
-      background: var(--bg-primary);
+      background: var(--section-bg);
       padding: 4.5rem 0 5rem;
       transition: background var(--transition);
     }
@@ -818,7 +1005,6 @@
       padding-top: 1rem;
       border-top: 1px solid var(--border-color);
     }
-    /* Image avatar — replace <img> src with your own */
     .testimonial-avatar {
       width: 52px;
       height: 52px;
@@ -854,12 +1040,13 @@
       .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 767px) {
+      .testimonials-section { padding: 3.5rem 0; }
       .testimonials-grid { grid-template-columns: 1fr; gap: 1.2rem; }
       .testimonial-card { padding: 1.6rem 1.4rem; }
     }
 
     /* ============================================================
-       6. CTA SECTION
+       9. CTA SECTION
        ============================================================ */
     .cta-section {
       background: linear-gradient(135deg, var(--accent), var(--accent-dark));
@@ -1223,8 +1410,8 @@
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-         <li><a href="faq.html">FAQ</a></li>
-         <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
 
@@ -1270,8 +1457,8 @@
       <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="gallery.html">Gallery</a></li>
-       <li><a href="faq.html">FAQ</a></li>
-         <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li class="mobile-cta">
         <a href="contact.html" class="mobile-inspect-btn">
@@ -1292,7 +1479,7 @@
   <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
 
   <!-- ============================================================
-       1. HERO SPLIT (SHORTER)
+       1. HERO SPLIT
        ============================================================ -->
   <section class="hero-split">
     <div class="container">
@@ -1327,7 +1514,6 @@
           </div>
         </div>
         <div class="hero-split-visual">
-          <!-- 👇 REPLACE WITH YOUR IMAGE -->
           <img src="images/hero 2.jpg" alt="Foundation waterproofing">
           <div class="hero-float-badge">
             <i class="fas fa-check-circle"></i>
@@ -1346,7 +1532,7 @@
        ============================================================ -->
   <section class="why-section">
     <div class="container">
-      <h2 class="section-title"><i class="fas fa-star"></i> Why Choose Us</h2>
+      <h2 class="section-title">Why Choose Us</h2>
       <p class="section-subtitle">Trusted by thousands of homeowners for reliable, long-lasting protection.</p>
       <div class="why-grid">
         <div class="why-card">
@@ -1374,48 +1560,41 @@
   </section>
 
   <!-- ============================================================
-       3. FOUNDATION & BASEMENT PROTECTION
+       3. PROBLEMS WE SOLVE (common problems)
        ============================================================ -->
-  <section class="protection-section">
+  <section class="problems-section">
     <div class="container">
-      <h2 class="section-title"><i class="fas fa-home"></i> Foundation & Basement Protection 🏠💧</h2>
-      <p class="section-subtitle">What we protect — so your home stays dry, safe, and structurally sound.</p>
-      <div class="protection-split">
-        <div class="protection-visual">
-          <!-- 👇 REPLACE WITH YOUR IMAGE -->
-          <img src="images/protection.jpg" alt="Protected foundation and basement">
-          <span class="protection-visual-tag">Complete Protection</span>
+      <h2 class="section-title">Problems We Solve</h2>
+      <p class="section-subtitle">The most common water and foundation issues we fix every day.</p>
+      <div class="problems-grid">
+        <div class="problem-card">
+          <div class="problem-img">
+            <img src="images/problem 1.jpg" alt="Foundation Cracks">
+          </div>
+          <div class="problem-body">
+            <div class="icon"><i class="fas fa-house-crack"></i></div>
+            <h3>Foundation Cracks</h3>
+            <p>Visible cracks in walls or floors that let water seep into your basement and weaken structural integrity.</p>
+          </div>
         </div>
-        <div class="protection-content">
-          <div class="protection-list">
-            <div class="protection-item">
-              <div class="protection-item-icon"><i class="fas fa-house-crack"></i></div>
-              <div class="protection-item-text">
-                <h4>Foundation</h4>
-                <p>Sealing cracks, reinforcing slabs, and stopping water at the source.</p>
-              </div>
-            </div>
-            <div class="protection-item">
-              <div class="protection-item-icon"><i class="fas fa-water"></i></div>
-              <div class="protection-item-text">
-                <h4>Basement</h4>
-                <p>Interior and exterior waterproofing that keeps your basement bone dry.</p>
-              </div>
-            </div>
-            <div class="protection-item">
-              <div class="protection-item-icon"><i class="fas fa-stream"></i></div>
-              <div class="protection-item-text">
-                <h4>Drainage</h4>
-                <p>French drains, sump pumps, and grading solutions for proper water flow.</p>
-              </div>
-            </div>
-            <div class="protection-item">
-              <div class="protection-item-icon"><i class="fas fa-layer-group"></i></div>
-              <div class="protection-item-text">
-                <h4>Structural Walls</h4>
-                <p>Reinforcement, carbon fiber, and repair for long-term structural integrity.</p>
-              </div>
-            </div>
+        <div class="problem-card">
+          <div class="problem-img">
+            <img src="images/problem 2.jpg" alt="Basement Leaks">
+          </div>
+          <div class="problem-body">
+            <div class="icon"><i class="fas fa-tint"></i></div>
+            <h3>Basement Leaks</h3>
+            <p>Water stains, dampness, and puddles caused by poor drainage or hydrostatic pressure.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-img">
+            <img src="images/problem 3.jpg" alt="Flooding">
+          </div>
+          <div class="problem-body">
+            <div class="icon"><i class="fas fa-water"></i></div>
+            <h3>Flooding & Sump Failure</h3>
+            <p>Basement flooding during heavy rains due to inadequate or failing sump pump systems.</p>
           </div>
         </div>
       </div>
@@ -1423,11 +1602,110 @@
   </section>
 
   <!-- ============================================================
-       4. OUR PROTECTION PROCESS
+       4. OUR SERVICES
+       ============================================================ -->
+  <section class="services-section">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">From foundation crack repair to sump pumps — we've got you covered.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-img">
+            <img src="images/service 1.jpg" alt="Foundation Crack Repair">
+          </div>
+          <div class="service-body">
+            <div class="icon"><i class="fas fa-house-crack"></i></div>
+            <h3>Foundation Crack Repair</h3>
+            <p>We seal and repair cracks in your foundation walls and floors, preventing water intrusion and structural damage.</p>
+            <a href="services.html" class="arrow-link">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-img">
+            <img src="images/service 2.jpg" alt="Sump Pump Installation">
+          </div>
+          <div class="service-body">
+            <div class="icon"><i class="fas fa-water"></i></div>
+            <h3>Sump Pump Systems</h3>
+            <p>Installation and maintenance of primary and backup sump pumps to keep your basement dry during heavy rains.</p>
+            <a href="services.html" class="arrow-link">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-img">
+            <img src="images/service 3.jpg" alt="Basement Waterproofing">
+          </div>
+          <div class="service-body">
+            <div class="icon"><i class="fas fa-shield-alt"></i></div>
+            <h3>Basement Waterproofing</h3>
+            <p>Complete interior and exterior waterproofing solutions including drainage systems, sealants, and membranes.</p>
+            <a href="services.html" class="arrow-link">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. WARNING SIGNS
+       ============================================================ -->
+  <section class="warning-section">
+    <div class="container">
+      <h2 class="section-title">Warning Signs to Watch For</h2>
+      <p class="section-subtitle">If you notice any of these, it's time to book a free inspection — small problems get worse fast.</p>
+      <div class="warning-grid">
+        <div class="warning-card">
+          <div class="warning-number">01</div>
+          <div class="warning-text">
+            <h3>Musty or Damp Odors</h3>
+            <p>Persistent musty smells in your basement signal hidden moisture and potential mold growth.</p>
+          </div>
+        </div>
+        <div class="warning-card">
+          <div class="warning-number">02</div>
+          <div class="warning-text">
+            <h3>Water Stains on Walls</h3>
+            <p>Brown or yellow stains on basement walls and ceilings are early signs of water intrusion.</p>
+          </div>
+        </div>
+        <div class="warning-card">
+          <div class="warning-number">03</div>
+          <div class="warning-text">
+            <h3>Efflorescence (White Powder)</h3>
+            <p>Chalky white deposits on concrete walls mean water is passing through the foundation.</p>
+          </div>
+        </div>
+        <div class="warning-card">
+          <div class="warning-number">04</div>
+          <div class="warning-text">
+            <h3>Bowing or Leaning Walls</h3>
+            <p>Walls that curve inward or lean indicate serious structural pressure from soil and water.</p>
+          </div>
+        </div>
+        <div class="warning-card">
+          <div class="warning-number">05</div>
+          <div class="warning-text">
+            <h3>Sticking Doors & Windows</h3>
+            <p>Doors or windows that suddenly stick or won't close properly can indicate foundation movement.</p>
+          </div>
+        </div>
+        <div class="warning-card">
+          <div class="warning-number">06</div>
+          <div class="warning-text">
+            <h3>High Humidity Indoors</h3>
+            <p>Condensation on pipes or windows, or a constantly running dehumidifier, means too much moisture.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. OUR PROTECTION PROCESS
        ============================================================ -->
   <section class="process-section">
     <div class="container">
-      <h2 class="section-title"><i class="fas fa-tools"></i> Our Protection Process 🔧</h2>
+      <h2 class="section-title">Our Protection Process</h2>
       <p class="section-subtitle">A simple, proven four-step approach that delivers lasting results.</p>
       <div class="process-grid">
         <div class="process-step">
@@ -1459,11 +1737,11 @@
   </section>
 
   <!-- ============================================================
-       5. TESTIMONIALS (WITH IMAGE AVATARS)
+       8. TESTIMONIALS
        ============================================================ -->
   <section class="testimonials-section">
     <div class="container">
-      <h2 class="section-title"><i class="fas fa-star"></i> What Our Customers Say ⭐⭐⭐⭐⭐</h2>
+      <h2 class="section-title">What Our Customers Say</h2>
       <p class="section-subtitle">Real reviews from homeowners we've protected.</p>
       <div class="testimonials-grid">
         <div class="testimonial-card">
@@ -1473,7 +1751,6 @@
           <p class="testimonial-text">"Our basement had been leaking for years. DryShield fixed it in two days and it's been bone dry ever since. Absolute lifesavers."</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">
-              <!-- 👇 REPLACE WITH YOUR IMAGE -->
               <img src="images/member 1.jpg" alt="Sarah M.">
             </div>
             <div class="testimonial-info">
@@ -1489,7 +1766,6 @@
           <p class="testimonial-text">"Professional, punctual, and honest. They explained everything clearly and the written warranty gave us real peace of mind."</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">
-              <!-- 👇 REPLACE WITH YOUR IMAGE -->
               <img src="images/member 2.jpg" alt="James K.">
             </div>
             <div class="testimonial-info">
@@ -1505,7 +1781,6 @@
           <p class="testimonial-text">"Best contractors we've ever hired. They fixed a foundation crack that two other companies missed. Highly recommended."</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">
-              <!-- 👇 REPLACE WITH YOUR IMAGE -->
               <img src="images/member 3.jpg" alt="Elena R.">
             </div>
             <div class="testimonial-info">
@@ -1519,7 +1794,7 @@
   </section>
 
   <!-- ============================================================
-       6. CTA SECTION
+       9. CTA SECTION
        ============================================================ -->
   <div class="container">
     <div class="cta-section">

@@ -63,7 +63,7 @@
     }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
 
-      /* ===== NAVBAR ===== */
+    /* ===== NAVBAR ===== */
     .navbar {
       display: flex;
       flex-wrap: wrap;
@@ -78,14 +78,12 @@
       transition: background var(--transition), border-color var(--transition);
     }
 
-    /* Only top-level nav links are white — dropdown links keep their own color */
     .navbar .logo-text,
     .navbar .nav-links > li > a { color: #ffffff !important; }
     .navbar .logo-text span { color: #ffffff !important; opacity: 0.7; }
     .navbar .nav-links > li > a:hover { color: #4db8ff !important; }
     .navbar .nav-links > li > a.active { color: #4db8ff !important; border-bottom-color: #4db8ff !important; }
 
-    /* ===== LOGO ===== */
     .logo, .footer-logo-link {
       display: flex;
       align-items: center;
@@ -116,7 +114,6 @@
       letter-spacing: -0.5px;
     }
 
-    /* ===== NAV LINKS ===== */
     .nav-links {
       display: flex;
       flex-wrap: wrap;
@@ -131,7 +128,6 @@
       transition: color 0.2s;
     }
 
-    /* ===== DROPDOWN ===== */
     .dropdown { position: relative; cursor: pointer; }
     .dropdown > a { display: flex; align-items: center; gap: 4px; }
 
@@ -189,7 +185,6 @@
       background: #0a0a0a;
     }
 
-    /* ===== NAV CONTROLS (RTL + Theme + CTA) ===== */
     .nav-controls {
       display: flex;
       align-items: center;
@@ -437,7 +432,7 @@
     .stat-item .number { font-size: 2.5rem; font-weight: 700; color: var(--accent); display: block; }
     .stat-item .label { font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.3rem; }
 
-    /* ===== SECTION TITLE ===== */
+    /* ===== SECTION TITLE (icons removed) ===== */
     .section-title {
       font-size: 2.2rem;
       font-weight: 700;
@@ -445,7 +440,6 @@
       text-align: center;
       color: var(--text-primary);
     }
-    .section-title i { color: var(--accent); margin-right: 10px; }
     .section-subtitle {
       color: var(--text-secondary);
       margin-bottom: 2.5rem;
@@ -480,46 +474,41 @@
       box-shadow: 0 20px 40px var(--shadow);
       border-color: var(--accent);
     }
-    /* ===== Problem Images — cool "before" treatment ===== */
-.problem-img {
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-  background: #d4e0e8;
-  position: relative;
-}
-
-.problem-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease, filter 0.5s ease;
-  filter: grayscale(45%) brightness(0.85) contrast(1.05);
-}
-
-/* Cool blue-grey overlay */
-.problem-img::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    160deg,
-    rgba(0, 40, 70, 0.35) 0%,
-    rgba(0, 80, 120, 0.15) 100%
-  );
-  pointer-events: none;
-  transition: opacity 0.5s ease;
-  z-index: 1;
-}
-
-.problem-card:hover .problem-img img {
-  transform: scale(1.06);
-  filter: grayscale(0%) brightness(1) contrast(1);
-}
-.problem-card:hover .problem-img::after {
-  opacity: 0;
-}
+    .problem-img {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #d4e0e8;
+      position: relative;
+    }
+    .problem-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease, filter 0.5s ease;
+      filter: grayscale(45%) brightness(0.85) contrast(1.05);
+    }
+    .problem-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(0, 40, 70, 0.35) 0%,
+        rgba(0, 80, 120, 0.15) 100%
+      );
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+      z-index: 1;
+    }
+    .problem-card:hover .problem-img img {
+      transform: scale(1.06);
+      filter: grayscale(0%) brightness(1) contrast(1);
+    }
+    .problem-card:hover .problem-img::after {
+      opacity: 0;
+    }
     .problem-body {
       padding: 1.8rem 1.5rem;
       flex: 1;
@@ -638,8 +627,7 @@
     }
 
     /* ============================================================
-       5. STRUCTURAL PROTECTION GUARANTEE — DIFFERENT LAYOUT
-       Split two-column: Left = big badge card / Right = staggered list
+       5. STRUCTURAL PROTECTION GUARANTEE
        ============================================================ */
     .guarantee-section {
       background: var(--section-bg);
@@ -648,7 +636,6 @@
       position: relative;
       overflow: hidden;
     }
-    /* Decorative background blobs */
     .guarantee-section::before {
       content: '';
       position: absolute;
@@ -681,7 +668,6 @@
       z-index: 1;
     }
 
-    /* ---- LEFT: Big Badge Card ---- */
     .guarantee-badge-card {
       background: linear-gradient(160deg, var(--accent) 0%, var(--accent-dark) 100%);
       border-radius: 36px;
@@ -767,7 +753,6 @@
       backdrop-filter: blur(4px);
     }
 
-    /* ---- RIGHT: Staggered List ---- */
     .guarantee-list {
       display: flex;
       flex-direction: column;
@@ -805,7 +790,6 @@
       border-color: var(--accent);
     }
     [dir="rtl"] .guarantee-item:hover { transform: translateX(-8px); }
-    /* Stagger offsets for visual rhythm */
     .guarantee-item:nth-child(1) { margin-left: 0; }
     .guarantee-item:nth-child(2) { margin-left: 2.5rem; }
     .guarantee-item:nth-child(3) { margin-left: 1.2rem; }
@@ -843,7 +827,6 @@
       line-height: 1.6;
     }
 
-    /* Responsive for the new guarantee layout */
     @media (max-width: 1024px) {
       .guarantee-split { grid-template-columns: 1fr; gap: 3rem; }
       .guarantee-badge-card { transform: rotate(0deg); max-width: 500px; margin: 0 auto; }
@@ -1292,8 +1275,8 @@
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-         <li><a href="faq.html">FAQ</a></li>
-         <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
 
@@ -1406,7 +1389,7 @@
   <!-- ===== 3. PROBLEMS WE SOLVE ===== -->
   <section class="problems-section">
     <div class="container">
-      <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> Problems We Solve</h2>
+      <h2 class="section-title">Problems We Solve</h2>
       <p class="section-subtitle">Common water and foundation issues we fix every day.</p>
       <div class="problems-grid">
         <div class="problem-card">
@@ -1414,7 +1397,7 @@
             <img src="images/problem 1.jpg" alt="Foundation Cracks">
           </div>
           <div class="problem-body">
-           <div class="icon"><i class="fas fa-house-crack"></i></div>
+            <div class="icon"><i class="fas fa-house-crack"></i></div>
             <h3>Foundation Cracks</h3>
             <p>Visible cracks in walls or floors that let water seep into your basement and weaken structural integrity.</p>
           </div>
@@ -1446,7 +1429,7 @@
   <!-- ===== 4. OUR SERVICES ===== -->
   <section class="services-section">
     <div class="container">
-      <h2 class="section-title"><i class="fas fa-tools"></i> Our Services</h2>
+      <h2 class="section-title">Our Services</h2>
       <p class="section-subtitle">From foundation crack repair to sump pumps — we've got you covered.</p>
       <div class="services-grid">
         <div class="service-card">
@@ -1454,11 +1437,11 @@
             <img src="images/service 1.jpg" alt="Foundation Crack Repair">
           </div>
           <div class="service-body">
-  <div class="icon"><i class="fas fa-house-crack"></i></div>
-  <h3>Foundation Crack Repair</h3>
-  <p>We seal and repair cracks in your foundation walls and floors, preventing water intrusion and structural damage.</p>
-  <a href="services.html" class="arrow-link">Learn More <i class="fas fa-arrow-right"></i></a>
-</div>
+            <div class="icon"><i class="fas fa-house-crack"></i></div>
+            <h3>Foundation Crack Repair</h3>
+            <p>We seal and repair cracks in your foundation walls and floors, preventing water intrusion and structural damage.</p>
+            <a href="services.html" class="arrow-link">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
         <div class="service-card">
           <div class="service-img">
@@ -1487,16 +1470,15 @@
   </section>
 
   <!-- ============================================================
-       5. STRUCTURAL PROTECTION GUARANTEE — DIFFERENT LAYOUT
+       5. STRUCTURAL PROTECTION GUARANTEE
        ============================================================ -->
   <section class="guarantee-section">
     <div class="container">
-      <h2 class="section-title"><i class="fas fa-shield-alt"></i> Structural Protection Guarantee 🛡️</h2>
+      <h2 class="section-title">Structural Protection Guarantee 🛡️</h2>
       <p class="section-subtitle">We stand behind every repair with written guarantees. Your home's safety is our priority.</p>
 
       <div class="guarantee-split">
 
-        <!-- LEFT: Big rotating badge card -->
         <div class="guarantee-badge-card">
           <div class="guarantee-badge-inner">
             <div class="guarantee-badge-icon">
@@ -1510,7 +1492,6 @@
           </div>
         </div>
 
-        <!-- RIGHT: Staggered guarantee list -->
         <div class="guarantee-list">
 
           <div class="guarantee-item">
@@ -1552,7 +1533,7 @@
   <!-- ===== 6. BEFORE & AFTER ===== -->
   <section class="gallery-section">
     <div class="container">
-      <h2 class="section-title"><i class="fas fa-images"></i> Before & After</h2>
+      <h2 class="section-title">Before & After</h2>
       <p class="section-subtitle">See the real results of our waterproofing and foundation repair work.</p>
       <div class="gallery-grid">
         <div class="gallery-item">

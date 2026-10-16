@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
   <title>Gallery · DryShield Basement Waterproofing</title>
- <link rel="icon" type="image/jpeg" href="images/basement.jpg">
+  <link rel="icon" type="image/jpeg" href="images/basement.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
@@ -279,219 +279,161 @@
       text-align: center;
     }
 
-  /* ============================================================
-   1. HERO — CENTERED CONTENT WITH 3 IMAGES BELOW
-   ============================================================ */
-.gallery-hero {
-  background: linear-gradient(135deg, rgba(0, 102, 161, 0.06) 0%, rgba(0, 136, 204, 0.03) 100%);
-  padding: 1.5rem 0 1.5rem;
-  overflow: hidden;
-  transition: background var(--transition);
-  position: relative;
-}
-[data-theme="dark"] .gallery-hero {
-  background: linear-gradient(135deg, rgba(0, 136, 204, 0.08) 0%, rgba(0, 102, 161, 0.04) 100%);
-}
+    /* ============================================================
+       1. HERO — CONSISTENT WITH INNER PAGES
+       ============================================================ */
+    .page-hero {
+      width: 100%;
+      min-height: 380px;
+      padding: 3.5rem 1.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background-image:
+        linear-gradient(135deg, rgba(10, 31, 46, 0.55), rgba(0, 77, 122, 0.45)),
+        url("images/hero 5.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; right: -15%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(77, 184, 255, 0.12), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40%; left: -10%;
+      width: 450px; height: 450px;
+      background: radial-gradient(circle, rgba(77, 184, 255, 0.08), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .page-hero-breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.35rem 1rem;
+      border-radius: 60px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 0.9rem;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    }
+    .page-hero-content h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      margin-bottom: 0.9rem;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+    }
+    .page-hero-content h1 span { color: #4db8ff; }
+    .page-hero-content p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.95);
+      max-width: 620px;
+      margin: 0 auto 1.6rem;
+      line-height: 1.7;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+    }
+    .page-hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.9rem;
+    }
+    .page-hero-btn-primary {
+      background: #4db8ff;
+      color: #0a1f2e;
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(77, 184, 255, 0.35);
+    }
+    .page-hero-btn-primary:hover {
+      background: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 14px 34px rgba(77, 184, 255, 0.5);
+    }
+    .page-hero-btn-outline {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(6px);
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      padding: 0.8rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .page-hero-btn-outline:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: #ffffff;
+      transform: translateY(-3px);
+    }
 
-.gallery-hero::before {
-  content: '';
-  position: absolute;
-  top: -30%;
-  right: -10%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(0, 136, 204, 0.12), transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-.gallery-hero::after {
-  content: '';
-  position: absolute;
-  bottom: -30%;
-  left: -10%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(0, 136, 204, 0.08), transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-.gallery-hero-content,
-.gallery-hero-strip {
-  position: relative;
-  z-index: 2;
-}
-.gallery-hero-content {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 1rem;
-  padding: 0 0.5rem;
-}
-.gallery-hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(0, 102, 161, 0.1);
-  color: var(--accent);
-  padding: 0.32rem 0.9rem;
-  border-radius: 60px;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-bottom: 0.55rem;
-}
-.gallery-hero-content h1 {
-  font-size: 1.85rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  margin-bottom: 0.5rem;
-}
-.gallery-hero-content h1 span { color: var(--accent); }
-.gallery-hero-content p {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  max-width: 580px;
-  margin: 0 auto 0.9rem;
-  line-height: 1.65;
-}
-.gallery-hero-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.7rem;
-}
-.gallery-hero-btn-primary {
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  padding: 0.65rem 1.6rem;
-  border-radius: 60px;
-  font-weight: 700;
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: 0.25s;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-}
-.gallery-hero-btn-primary:hover {
-  background: var(--accent-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 102, 161, 0.4);
-}
-.gallery-hero-btn-outline {
-  background: transparent;
-  color: var(--text-primary);
-  border: 2px solid var(--border-color);
-  padding: 0.6rem 1.4rem;
-  border-radius: 60px;
-  font-weight: 700;
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: 0.25s;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-}
-.gallery-hero-btn-outline:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-2px);
-}
-
-/* 3-image strip below content */
-.gallery-hero-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.8rem;
-  margin-top: 0.3rem;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.gallery-hero-strip-img {
-  position: relative;
-  border-radius: 18px;
-  overflow: hidden;
-  aspect-ratio: 16/10;
-  max-height: 150px;
-  box-shadow: 0 8px 20px var(--shadow);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.gallery-hero-strip-img:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 16px 34px var(--shadow);
-}
-.gallery-hero-strip-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
-}
-.gallery-hero-strip-img:hover img { transform: scale(1.05); }
-/* Middle image slightly taller for visual rhythm */
-.gallery-hero-strip-img:nth-child(2) {
-  transform: translateY(-8px);
-  max-height: 165px;
-}
-.gallery-hero-strip-img:nth-child(2):hover {
-  transform: translateY(-13px);
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 992px) {
-  .gallery-hero { padding: 1.4rem 0 1.4rem; }
-  .gallery-hero-content { margin-bottom: 0.9rem; }
-  .gallery-hero-content h1 { font-size: 1.65rem; }
-  .gallery-hero-content p { font-size: 0.86rem; }
-  .gallery-hero-strip { gap: 0.7rem; max-width: 100%; }
-  .gallery-hero-strip-img { aspect-ratio: 16/10; max-height: 130px; }
-  .gallery-hero-strip-img:nth-child(2) { transform: translateY(-6px); max-height: 140px; }
-  .gallery-hero-strip-img:nth-child(2):hover { transform: translateY(-10px); }
-}
-@media (max-width: 767px) {
-  .gallery-hero { padding: 1.2rem 0 1.2rem; }
-  .gallery-hero-content { margin-bottom: 0.9rem; }
-  .gallery-hero-content h1 { font-size: 1.35rem; }
-  .gallery-hero-content p { font-size: 0.82rem; max-width: 100%; margin-bottom: 0.85rem; }
-  .gallery-hero-buttons { flex-direction: column; align-items: center; max-width: 250px; margin: 0 auto; }
-  .gallery-hero-btn-primary, .gallery-hero-btn-outline { width: 100%; justify-content: center; }
-  .gallery-hero-strip {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.4rem;
-    margin-top: 0.3rem;
-  }
-  .gallery-hero-strip-img {
-    aspect-ratio: 1/1;
-    max-height: 85px;
-    border-radius: 10px;
-  }
-  .gallery-hero-strip-img:nth-child(2) { transform: translateY(-4px); max-height: 92px; }
-  .gallery-hero-strip-img:nth-child(2):hover { transform: translateY(-7px); }
-}
-@media (max-width: 480px) {
-  .gallery-hero { padding: 1rem 0 1rem; }
-  .gallery-hero-content { margin-bottom: 0.8rem; }
-  .gallery-hero-content h1 { font-size: 1.15rem; }
-  .gallery-hero-content p { font-size: 0.76rem; margin-bottom: 0.75rem; }
-  .gallery-hero-badge { font-size: 0.58rem; padding: 0.28rem 0.75rem; }
-  .gallery-hero-btn-primary, .gallery-hero-btn-outline { padding: 0.55rem 1.3rem; font-size: 0.78rem; }
-  .gallery-hero-strip { gap: 0.35rem; }
-  .gallery-hero-strip-img { border-radius: 8px; max-height: 70px; }
-  .gallery-hero-strip-img:nth-child(2) { max-height: 78px; }
-}
+    @media (max-width: 992px) {
+      .page-hero { min-height: 340px; padding: 3rem 1.5rem 2.5rem; background-attachment: scroll; }
+      .page-hero-content h1 { font-size: 2.2rem; }
+      .page-hero-content p { font-size: 0.95rem; }
+    }
+    @media (max-width: 767px) {
+      .page-hero { min-height: 300px; padding: 2.5rem 1rem 2rem; }
+      .page-hero-content h1 { font-size: 1.7rem; }
+      .page-hero-content p { font-size: 0.88rem; max-width: 100%; margin-bottom: 1.2rem; }
+      .page-hero-buttons { flex-direction: column; align-items: center; max-width: 270px; margin: 0 auto; }
+      .page-hero-btn-primary, .page-hero-btn-outline { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .page-hero { min-height: 280px; padding: 2rem 1rem 1.8rem; }
+      .page-hero-content h1 { font-size: 1.45rem; }
+      .page-hero-content p { font-size: 0.82rem; margin-bottom: 1.1rem; }
+      .page-hero-breadcrumb { font-size: 0.6rem; padding: 0.28rem 0.75rem; }
+      .page-hero-btn-primary, .page-hero-btn-outline { padding: 0.7rem 1.5rem; font-size: 0.82rem; }
+    }
 
     /* ============================================================
        3. GALLERY FILTER TABS
        ============================================================ */
     .gallery-filter-section {
       background: var(--bg-primary);
-      padding: 3rem 0 5rem;
+      padding: 4rem 0 5rem;
       transition: background var(--transition);
     }
     .gallery-filter-tabs {
@@ -598,23 +540,8 @@
       transition: transform 0.6s ease;
     }
     .gallery-card:hover .gallery-card-img img { transform: scale(1.06); }
-    /* Before image slightly desaturated to emphasize the problem */
     .gallery-card-img.before img { filter: grayscale(30%) brightness(0.9); }
     .gallery-card:hover .gallery-card-img.before img { filter: grayscale(0%) brightness(1); }
-
-    /* Center divider */
-    .gallery-card-divider {
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: var(--bg-primary);
-      transform: translateX(-50%);
-      z-index: 2;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
-    }
-    [data-theme="dark"] .gallery-card-divider { background: #0a0a0a; }
 
     .gallery-card-body {
       padding: 1.4rem 1.5rem 1.6rem;
@@ -668,7 +595,7 @@
     }
 
     /* ============================================================
-       5. HIGHLIGHT STRIP (Big featured project)
+       5. FEATURED PROJECT — FIXED (text no longer cropped)
        ============================================================ */
     .featured-strip {
       background: var(--section-bg);
@@ -711,6 +638,7 @@
     }
     [data-theme="dark"] .featured-visual-badge { background: rgba(10, 10, 10, 0.95); color: #4db8ff; }
 
+    /* Text block is now OUTSIDE the image, not overlaid */
     .featured-text h2 {
       font-size: 2rem;
       font-weight: 800;
@@ -768,7 +696,7 @@
     }
 
     /* ============================================================
-       6. CTA SECTION — UNIQUE
+       6. CTA SECTION
        ============================================================ */
     .cta-section {
       background: linear-gradient(135deg, #0a1f2e, #004d7a);
@@ -1133,8 +1061,8 @@
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="gallery.html" class="active">Gallery</a></li>
-         <li><a href="faq.html">FAQ</a></li>
-         <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
 
@@ -1180,8 +1108,8 @@
       <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="gallery.html" class="active">Gallery</a></li>
-       <li><a href="faq.html">FAQ</a></li>
-         <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li class="mobile-cta">
         <a href="contact.html" class="mobile-inspect-btn">
@@ -1202,42 +1130,25 @@
   <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
 
   <!-- ============================================================
-     1. HERO — CENTERED CONTENT WITH 3 IMAGES BELOW
-     ============================================================ -->
-<section class="gallery-hero">
-  <div class="container">
-    <div class="gallery-hero-content">
-      <span class="gallery-hero-badge">
+       1. HERO — CONSISTENT WITH INNER PAGES
+       ============================================================ -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <span class="page-hero-breadcrumb">
         <i class="fas fa-images"></i> Real Projects · Real Results
       </span>
       <h1>See the <span>DryShield</span> Difference</h1>
       <p>Browse real before-and-after photos from our completed waterproofing, crack repair, and sump pump installations across Sydney. Every image tells a story of a home we've protected.</p>
-      <div class="gallery-hero-buttons">
-        <a href="#gallery-grid" class="gallery-hero-btn-primary">
+      <div class="page-hero-buttons">
+        <a href="#gallery-grid" class="page-hero-btn-primary">
           <i class="fas fa-th"></i> Browse Gallery
         </a>
-        <a href="contact.html" class="gallery-hero-btn-outline">
+        <a href="contact.html" class="page-hero-btn-outline">
           <i class="fas fa-clipboard-check"></i> Get a Quote
         </a>
       </div>
     </div>
-
-    <div class="gallery-hero-strip">
-      <div class="gallery-hero-strip-img">
-        <!-- 👇 REPLACE WITH YOUR IMAGE -->
-        <img src="images/hero 5.jpg" alt="Waterproofing project">
-      </div>
-      <div class="gallery-hero-strip-img">
-        <!-- 👇 REPLACE WITH YOUR IMAGE -->
-        <img src="images/hero 6.jpg" alt="Crack repair project">
-      </div>
-      <div class="gallery-hero-strip-img">
-        <!-- 👇 REPLACE WITH YOUR IMAGE -->
-        <img src="images/hero 7.jpg" alt="Sump pump project">
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- ============================================================
        3. GALLERY FILTER + GRID
@@ -1266,11 +1177,9 @@
           </div>
           <div class="gallery-card-images">
             <div class="gallery-card-img before">
-              <!-- 👇 REPLACE WITH YOUR IMAGE -->
               <img src="images/gallery before 1.jpg" alt="Cracked foundation before">
             </div>
             <div class="gallery-card-img after">
-              <!-- 👇 REPLACE WITH YOUR IMAGE -->
               <img src="images/gallery after 1.jpg" alt="Repaired foundation after">
             </div>
           </div>
@@ -1403,18 +1312,21 @@
   </section>
 
   <!-- ============================================================
-       4. FEATURED PROJECT (Highlight)
+       4. FEATURED PROJECT — TEXT NO LONGER CROPPED
        ============================================================ -->
   <section class="featured-strip">
     <div class="container">
       <h2 class="section-title"><i class="fas fa-star"></i> Featured Project</h2>
       <p class="section-subtitle">A complete basement transformation from start to finish.</p>
       <div class="featured-grid">
+
+        <!-- Image on left with only the small badge overlay -->
         <div class="featured-visual">
-          <!-- 👇 REPLACE WITH YOUR IMAGE -->
-          <img src="images/basement.jpg" alt="Featured project">
+          <img src="images/basement.jpg" alt="Featured project — full basement recovery">
           <span class="featured-visual-badge">Featured Work</span>
         </div>
+
+        <!-- All text sits OUTSIDE the image now, so nothing gets cropped -->
         <div class="featured-text">
           <h2>Full Basement <span>Recovery</span></h2>
           <p>This 1970s home had been battling water intrusion for years. We performed a complete assessment, then installed a full waterproofing system, sealed all cracks, and added a primary sump pump with battery backup.</p>
@@ -1449,6 +1361,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
